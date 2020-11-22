@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`translation of snippets skips double stacking 1`] = `
+"\\"use strict\\";
+
+async function foo() {
+  await expect.withinDeadline(bar());
+}"
+`;
+
+exports[`translation of snippets transforms a bare function call in statement context 1`] = `
+"\\"use strict\\";
+
+async function foo() {
+  await expect.withinDeadline(bar());
+}"
+`;
+
+exports[`translation of snippets transforms an existing expect 1`] = `
+"\\"use strict\\";
+
+async function foo() {
+  await expect.withinDeadline(expect(bar()).resolves.toBe(\\"hot potatoes\\"));
+}"
+`;
+
+exports[`translation of snippets transforms an expression 1`] = `
+"\\"use strict\\";
+
+async function foo() {
+  return await expect.withinDeadline(bar());
+}"
+`;
+
+exports[`translation of snippets transforms await in argument context 1`] = `
+"\\"use strict\\";
+
+async function foo() {
+  await expect.withinDeadline(bar(1, await expect.withinDeadline(quux()), 3));
+}"
+`;
+
+exports[`translation of snippets transforms multiple awaits 1`] = `
+"\\"use strict\\";
+
+async function foo() {
+  await expect.withinDeadline(bar(1, 2, 3));
+  await expect.withinDeadline(quux(1, 2, 3));
+}"
+`;

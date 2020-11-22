@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`smoke testing transforms just one line 1`] = `
-"\\"use strict\\";
-
-async function foo() {
-  await expect.withinDeadline(bar());
-}"
-`;
