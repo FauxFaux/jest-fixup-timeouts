@@ -19,7 +19,7 @@ describe('the results of calling jest', () => {
     ).toMatchSnapshot();
   });
 
-  it('does nothing by default', async () => {
+  it('detects deadline exceeded for a test', async () => {
     expect(
       jestMessages(
         // language=JavaScript
@@ -55,7 +55,7 @@ describe('the results of calling jest', () => {
     );
     const stdout = runJest(
       dir,
-      ['--runInBand', '--json', '--no-colors'],
+      ['--runInBand', '--json', '--no-colors', '--no-cache'],
       jestConfig,
     );
     return JSON.parse(stdout.toString('utf-8')).testResults.map((result) =>
