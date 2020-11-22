@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the results of calling jest does nothing by default 1`] = `
+Array [
+  "  ● foo
+
+    thrown: \\"Exceeded timeout of 30 ms for a test.
+    Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test.\\"
+
+      1 | const sleep = require(\\"sleep-promise\\");
+    > 2 | test(\\"foo\\", async () => {
+        | ^
+      3 |  await sleep(60);
+      4 | }, 30);
+
+      at Object.<anonymous> (foo.test.js:2:1)
+",
+]
+`;
+
+exports[`the results of calling jest does nothing by default 2`] = `
+Array [
+  "  ● foo
+
+    thrown: \\"Exceeded timeout of 30 ms for a test.
+    Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test.\\"
+
+      1 | const sleep = require(\\"sleep-promise\\");
+    > 2 | test(\\"foo\\", async () => {
+        | ^
+      3 |  await sleep(60);
+      4 | }, 30);
+
+      at Object.<anonymous> (foo.test.js:2:1)
+",
+]
+`;

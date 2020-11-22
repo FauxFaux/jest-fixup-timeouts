@@ -1,3 +1,4 @@
 module.exports = {
-  testPathIgnorePatterns: ['node_modules/', 'examples/'],
+  testRunner: 'jest-circus/runner',
+  testPathIgnorePatterns: ['node_modules/', 'examples/', '.temp/'],
 };
