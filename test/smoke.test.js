@@ -11,7 +11,7 @@ function runPlugin(code) {
 describe('smoke testing', () => {
   it('transforms just one line', () => {
     // language=JavaScript
-    const code = 'async function foo() {' + '  await mySleep();' + '}';
+    const code = 'async function foo() {' + '  await bar();' + '}';
 
     expect(runPlugin(code).code).toMatchSnapshot();
   });

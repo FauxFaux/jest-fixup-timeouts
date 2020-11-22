@@ -1,7 +1,7 @@
 const { TestEventHandler } = require('./lib');
 const NodeEnvironment = require('jest-environment-node');
 
-module.exports = class TimeoutEnvironment extends NodeEnvironment {
+class TimeoutEnvironment extends NodeEnvironment {
   constructor(config, context) {
     super(config, context);
     this.testEventHandler = new TestEventHandler(config, context);
@@ -11,3 +11,5 @@ module.exports = class TimeoutEnvironment extends NodeEnvironment {
     await this.testEventHandler.handleTestEvent(event, state);
   }
 }
+
+module.exports = TimeoutEnvironment;
