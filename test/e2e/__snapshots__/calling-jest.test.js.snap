@@ -1,18 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`the results of calling jest detects deadline exceeded for a hook 1`] = `
+Array [
+  "  ● does nothing
+
+    deadline exceeded (waited here for 10ms)
+
+      1 | const sleep = require(\\"sleep-promise\\");
+      2 | beforeAll(async () => {
+    > 3 |  await sleep(60);
+        |  ^
+      4 | }, 30);it(\\"does nothing\\", () => {});
+
+      at foo.test.js:3:2
+",
+]
+`;
+
 exports[`the results of calling jest detects deadline exceeded for a test 1`] = `
 Array [
   "  ● foo
 
-    deadline exceeded (waited here for 9ms)
+    thrown: \\"Exceeded timeout of 30 ms for a test.
+    Use jest.setTimeout(newTimeout) to increase the timeout value, if this is a long-running test.\\"
 
       1 | const sleep = require(\\"sleep-promise\\");
-      2 | test(\\"foo\\", async () => {
-    > 3 |  await sleep(60);
-        |  ^
+    > 2 | test(\\"foo\\", async () => {
+        | ^
+      3 |  await sleep(60);
       4 | }, 30);
 
-      at Object.<anonymous> (foo.test.js:3:2)
+      at Object.<anonymous> (foo.test.js:2:1)
 ",
 ]
 `;

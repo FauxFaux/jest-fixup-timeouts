@@ -37,6 +37,25 @@ describe('the results of calling jest', () => {
     ).toMatchSnapshot();
   });
 
+  it('detects deadline exceeded for a hook', async () => {
+    expect(
+      jestMessages(
+        // language=JavaScript
+        'const sleep = require("sleep-promise");\n' +
+          'beforeAll(async () => {\n' +
+          ' await sleep(60);\n' +
+          '}, 30);' +
+          'it("does nothing", () => {});',
+        {
+          testEnvironment: '../../environment',
+        },
+        {
+          plugins: ['../../rewrite-awaits'],
+        },
+      ),
+    ).toMatchSnapshot();
+  });
+
   function jestMessages(testJavaScript, jestConfig, babelConfig = {}) {
     fs.writeFileSync(`${dir}/foo.test.js`, testJavaScript);
     fs.writeFileSync(
